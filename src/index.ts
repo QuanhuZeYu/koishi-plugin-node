@@ -1,12 +1,8 @@
 import path from "node:path";
 import fs from "node:fs";
 import { Context, Service, Schema } from "koishi";
-import type * as execa_ from 'execa'
-const execa:typeof execa_ = loadExeca() as any;
-async function loadExeca() {
-	const execa = (await import('execa')).default;
-	return execa;
-}
+import { createRequire } from "node:module";
+
 
 
 export const name = 'QhzyNode';
@@ -51,6 +47,7 @@ export class QhzyNode extends Service {
 	 * @returns 执行结果的 Promise
 	 */
 	async runCommand(command: string, args: string[] = [], cwd?: string): Promise<string> {
+		const execa = await import('execa');
 		try {
 			const { stdout } = await execa.execa(command, args, { cwd });
 			return stdout;
