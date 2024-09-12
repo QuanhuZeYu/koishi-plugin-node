@@ -76,10 +76,10 @@ export class QhzyNode extends Service {
 
 			try {
 				// 初始化 package.json 文件
-				await this.runCommand('npm', ['init', '-y'], storeDir);
+				await this.runCommand(`${proxy}npm`, ['init', '-y'], storeDir);
 
 				// 使用代理安装 npm 包
-				await this.runCommand(`npm`, ['install', packageName], storeDir);
+				await this.runCommand(`${proxy}npm`, ['install', packageName], storeDir);
 				logger.info(`包安装完成: [ ${packageName} ]`);
 			} catch (e) {
 				logger.error(`安装包时出错: [ ${packageName} ], 错误信息: ${(e as Error).message}`);
