@@ -1,7 +1,7 @@
 {
   "name": "@quanhuzeyu/koishi-plugin-node",
   "description": "动态导入任何npm包",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "homepage": "https://github.com/QuanhuZeYu/koishi-plugin-node",
@@ -26,11 +26,13 @@
     "koishi",
     "plugin"
   ],
-  "devDependencies": {},
   "peerDependencies": {
     "koishi": "^4.17.11"
   },
   "dependencies": {
     "execa": "^9.3.1"
+  },
+  "devDependencies": {
+    "@types/execa": "^2.0.0"
   }
 }
