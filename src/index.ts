@@ -40,12 +40,13 @@ export class QhzyNode extends Service {
 	/**
 	 * 执行跨平台命令的函数
 	 * @param command 要执行的命令
+	 * @param args 执行命令的参数
 	 * @param cwd 执行命令的工作目录
 	 * @returns 执行结果的 Promise
 	 */
 	async runCommand(command: string, args: string[] = [], cwd?: string): Promise<string> {
 		try {
-			const { stdout } = await execa(command, args, { cwd });
+			const { stdout } = await execa.execa(command, args, { cwd });
 			return stdout;
 		} catch (error) {
 			throw new Error(`Error executing command: ${error.stderr || error.message}`);
