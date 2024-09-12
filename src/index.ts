@@ -1,7 +1,13 @@
 import path from "node:path";
 import fs from "node:fs";
 import { Context, Service, Schema } from "koishi";
-import execa from 'execa';
+import type * as execa_ from 'execa'
+const execa:typeof execa_ = loadExeca() as any;
+async function loadExeca() {
+	const execa = (await import('execa')).default;
+	return execa;
+}
+
 
 export const name = 'QhzyNode';
 
