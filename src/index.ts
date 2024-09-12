@@ -12,7 +12,7 @@ export interface Config {
 
 export const Config: Schema<Config> = Schema.object({
 	storeDir: Schema.string().default('data/@QuanhuZeYu/node'),
-	proxyPrefix: Schema.string().description('代理前缀').default(undefined),
+	proxyPrefix: Schema.string().description('代理前缀').default(''),
 });
 
 declare module 'koishi' {
@@ -27,6 +27,7 @@ export class QhzyNode extends Service {
 		super(ctx, 'node');
 		this.config = {
 			storeDir: 'data/@QuanhuZeYu/node',
+			proxyPrefix: '',
 			...config,
 		};
 	}
