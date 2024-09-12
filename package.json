@@ -9,7 +9,10 @@
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "node build.js",
+    "clean": "node clean.js"
+  },
   "keywords": [
     "chatbot",
     "koishi",
@@ -18,5 +21,8 @@
   "devDependencies": {},
   "peerDependencies": {
     "koishi": "^4.17.11"
+  },
+  "dependencies": {
+    "execa": "^9.3.1"
   }
 }
