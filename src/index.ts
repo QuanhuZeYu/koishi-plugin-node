@@ -60,7 +60,7 @@ export class QhzyNode extends Service {
 		const logger = this.ctx.logger('QhzyNode')
 		const proxy = this.config.proxyPrefix;
 		const storeDir = path.resolve(this.ctx.baseDir, this.config.storeDir);
-		const packDir = path.resolve(storeDir, packageName);
+		const packDir = path.resolve(storeDir, 'node_modules', packageName);
 
 		logger.info(`导入包路径: [ ${storeDir} ]`);
 
